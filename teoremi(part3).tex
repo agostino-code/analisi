@@ -1,0 +1,65 @@
+% !TEX root = C:\Users\Agostino\Analisi\teoremi(part3).tex
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+
+\title{Teoremi}
+\author{Agostino Cesarano}
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+\newtcolorbox{calloutbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Attenzione
+}
+\setcounter{part}{3}
+\part{Funzioni derivabili}
+\section{Teorema di Fermat}
+Sia $f(x)$ una funzione definita in $[a,b]$ e sia $x_0$ un punto di massimo o minimo relativo interno ad $[a,b]$. Se $f$ è derivabile in $x_0$, risulta $f'(x_0)=0$.\\
+Supponiamo senza perdita di generalità che \(x_0\) sia un punto di massimo; la dimostrazione nel caso in cui \(x_0\) sia un punto di minimo è analoga.
+\\ Dato che \(x_0\) è un punto di massimo, per un incremento \(h\) sufficientemente piccolo vale \(f(x_0 + h) - f(x_0) \leq 0\).
+Dividendo la disuguaglianza per \(h\), otteniamo:
+\begin{itemize}
+    \item se \(h\) è positivo, \(\frac{f(x_0 + h) - f(x_0)}{h} \leq 0\)
+    \item se \(h\) è negativo, \(\frac{f(x_0 + h) - f(x_0)}{h} \geq 0\)
+\end{itemize}
+Passando al limite per \(h \to 0\) in entrambe le disuguaglianze, otteniamo $$\lim_{h \rightarrow 0^+} \frac{f(x_0 + h) - f(x_0)}{h} \leq 0 \qquad e \qquad \lim_{h \rightarrow 0^-} \frac{f(x_0 + h) - f(x_0)}{h} \geq 0$$
+Questi limiti sono rispettivamente il limite destro e il limite sinistro della derivata prima, \(f'_+(x_0)\) e \(f'_-(x_0)\).
+Per l'ipotesi di derivabilità di \(f\) in \(x_0\), i due limiti devono coincidere \footnote{Se una funzione è derivabile in un punto, allora il limite destro e il limite sinistro della derivata devono coincidere in quel punto.}, quindi essendo \(f'_+(x_0) \leq 0\) e \(f'_-(x_0) \geq 0\) l'unico caso possibile è \(f'_+(x_0) = 0 = f'_-(x_0)\), ossia \(f'(x_0) = 0\).
+\\ Quindi, il teorema di Fermat ci dice che l'annullamento della derivata prima di una funzione derivabile in un punto \(x_0\) del dominio è condizione necessaria affinché \(x_0\) sia un punto di massimo o minimo relativo (quindi eventualmente anche assoluto) per la funzione.
+\section{Teorema di Rolle}
+Sia $f(x)$ una funzione continua in $[a,b]$ e dervibile in $(a,b)$. Se $f(a) = f(b)$, esiste un punto $x_0 \in (a,b)$ per cui $f'(x_0) = 0$.
+\\ Poiché \(f\) è continua in \([a, b]\), per il teorema di Weierstrass la funzione ammette massimo e minimo assoluti nell'intervallo.
+\\ Quindi, chiamati \(M\) il valore del massimo assoluto e \(m\) il valore del minimo assoluto in \([a, b]\), abbiamo due casi:
+\begin{itemize}
+    \item Se il massimo e il minimo assoluti coincidono, cioè \(M = m\), la funzione è costante in tutto l'intervallo e la sua derivata è nulla in ogni punto di \([a, b]\), quindi anche in un punto \(x_0\) generico. In questo caso il teorema è dimostrato.
+    \item Se invece \(M \neq m\), poiché per ipotesi \(f(a) = f(b)\), almeno uno tra i valori \(M\) e \(m\) è assunto dalla funzione in un punto \(c\) interno all'intervallo. Ad esempio, se il massimo \(M\) è assunto all'interno dell'intervallo nel punto \(x_0\), quindi \(f(c) = M\). Ora, poiché \(c\) è un punto di estremo locale e \(f\) è derivabile in tutto \((a, b)\), \(f'(x_0) = 0\) \underline{\textit {per il teorema di Fermat}}. Questo conclude la dimostrazione del teorema.
+\end{itemize}
+\section{Teorema di Lagrange}
+Sia $f(x)$ una funzione continua in $[a,b]$ e derivabile in $(a,b)$. Esiste un punto $x_0 \in (a,b)$ per cui
+$$f'(x_0)=\frac{f(b)-f(a)}{b-a}$$
+Si fa riferimento al Teorema di Rolle. Per applicare il Teorema di Rolle alla nostra funzione, definiamo una nuova funzione $g(x)$ che è la linea retta che passa per i punti $(a, f(a))$ e $(b, f(b))$.
+La pendenza di questa linea è $$\frac{f(b) - f(a)}{b - a} \quad \footnote{La pendenza viene rappresenta come il tasso di cambiamento medio della funzione $f$ sull'intervallo $[a, b]$. Questo viene calcolato come il cambiamento nel valore della funzione, $f(b) - f(a)$, diviso per il cambiamento nella variabile indipendente, $b - a$.}$$ Quindi, la funzione $g(x)$ può essere scritta come:
+
+$$g(x) = f(x)-[\frac{f(b)-f(a)}{b-a} (x-a)+ f(a)]$$
+
+La funzione $g(x)$ è una funzione lineare(cioè un polinomio di primo grado) \footnote{Equazione di una retta.} ed è quindi sempre derivabile.
+Inoltre poichè $f(x)$ è continua in $[a,b]$ e dervibaile in $(a,b)$, allora anche $g(x)$ è continua in $[a,b]$ e derviabile in $(a,b)$.\footnote{Questo perché le operazioni di somma, sottrazione, moltiplicazione e divisione (escludendo la divisione per zero) preservano la continuità e la derivabilità delle funzioni. Quindi, se f(x)f(x) è continua e derivabile, allora qualsiasi funzione g(x)g(x) che può essere espressa in termini di f(x)f(x) mediante queste operazioni sarà anch'essa continua e derivabile.}
+
+In più considerando le valutazioni di $g(x)$ in $a$ e $b$ abbiamo:
+
+$$g(a)=f(a)-\left[\dfrac{f(b)-f(a)}{b-a} (a-a)+f(a)\right]= f(a)-f(a) = 0$$
+$$g(b)=f(b)-\left[\dfrac{f(b)-f(a)}{b-a} (b-a)+f(a) \right]=f(b)-f(b)+f(a)-f(a)=0$$
+
+Quindi poichè $g(x)$ è continua in $[a,b]$, derivabile in $(a,b)$ e tale che $g(a)=g(b)$, essa rispetta le ipotesi del teorema di Rolle.
+Di conseguenza, proprio in forza del teorema di Rolle sappiamo per certo che esiste almeno un punto $x_0 \in (a,b)$ tale che $g'(x_0)=0$.
+Calcoliamo anzitutto $g'(x)$
+$$g'(x)=f'(x)- \dfrac{f(b)-f(a)}{b-a}$$ ovvero
+$$f'(x_0) =\dfrac{f(b)-f(a)}{b-a}$$ dimostrando il teorema.
+\end{document}

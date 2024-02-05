@@ -1,0 +1,169 @@
+\documentclass{article}
+
+\usepackage{amsmath} % For mathematical symbols and environments
+\usepackage{amssymb} % For additional mathematical symbols
+\usepackage{tcolorbox}
+\usepackage{pgfplots} % Add this line to import the pgfplots package
+
+\newtcolorbox{esbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    title=Esempio
+}
+
+\title{Definizioni}
+\author{Agostino Cesarano}
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+\setcounter{part}{5}
+\part{Serie}
+Una \textbf{serie} è una successione di numeri che si ottiene sommando i
+termini di una successione.\\ Sia $\{a_n\}$ una successione. Si definisce
+\textbf{serie} di termine generale ${a_n}$ la successione $\{s_n\}$ definita
+come la successione delle \textbf{somme parziali}:
+\begin{equation*}
+    s_n = a_1 + a_2 + \dots + a_n = \sum_{k=1}^n a_k
+\end{equation*}
+\begin{itemize}
+    \item Se la successione $\{s_n\}$ converge ad un limite finito, allora la serie è
+          detta \textbf{convergente}.
+    \item Se la successione $\{s_n\}$ diverge a $+\infty$, allora la serie è detta
+          \textbf{divergente} a $+\infty$.
+    \item Se la successione $\{s_n\}$ diverge a $-\infty$, allora la serie è detta
+          \textbf{divergente} a $-\infty$.
+    \item Se il limite della successione $\{s_n\}$ non esiste, allora la serie è detta
+          \textbf{indeterminata}.
+\end{itemize}
+Il carattere di una serie è la proprietà di essere convergente, o divergente oppure indeterminata.\\
+Una serie è detta \textbf{regolare} se la successione $\{a_n\}$ è convergente o divergente.
+\section*{Condizione necessaria per la convergenza di una serie}
+Se la serie $\sum_{n=1}^\infty a_n$ è convergente, allora $\lim_{n \to \infty} a_n = 0$.\\
+Esiste anche il viceversa? No, la condizione è necessaria ma non sufficiente.\\\\
+\begin{esbox}
+    La serie $\sum_{n=1}^\infty \frac{1}{n}$ è divergente, ma $\lim_{n \to \infty} \frac{1}{n} = 0$.
+\end{esbox}
+%Proprietà delle serie
+\section*{Proprietà delle serie}
+Se le serie a termini generali $a_n$ e $b_n$ sono regolari allora la serie a termini generali $a_n + b_n$ è regolare e risulta
+\begin{equation*}
+    \sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n
+\end{equation*}
+Analogamente, se le serie a termini generali $a_n$ e $b_n$ sono regolari allora la serie a termini generali $a_n - b_n$ è regolare e risulta
+\begin{equation*}
+    \sum_{n=1}^\infty (a_n - b_n) = \sum_{n=1}^\infty a_n - \sum_{n=1}^\infty b_n
+\end{equation*}
+Se la serie a termini generali $a_n$ è regolare e $c$ è un numero reale, allora la serie a termini generali $c \cdot a_n$ è regolare e risulta
+\begin{equation*}
+    \sum_{n=1}^\infty c \cdot a_n = c \cdot \sum_{n=1}^\infty a_n
+\end{equation*}
+\section*{Serie a termini non negativi}
+Una serie $\sum_{n=1}^\infty a_n$ è detta \textbf{a termini non negativi} se $a_n \geq 0$ per ogni $n \in \mathbb{N}$.\\\\
+Una successione a termini non negativi non può essere indeterminata.\\
+É quindi convergente oppure divergente a $+\infty$.
+\section*{Serie a termini positivi}
+Una serie $\sum_{n=1}^\infty a_n$ è detta \textbf{a termini positivi} se $a_n > 0$ per ogni $n \in \mathbb{N}$.\\\\
+\newpage
+\section*{Serie geometrica}
+La serie geometrica è una serie della forma
+\begin{equation*}
+    \sum_{n=0}^\infty x^n = 1 + x + x^2 + \dots + x^n
+\end{equation*}
+dove $x$ è un numero reale detto \textbf{ragione} della serie.\\
+Il carattere della serie geometrica dipende dal valore di $x$
+\begin{itemize}
+    \item Se $-1<x< 1$, allora la serie è convergente e risulta
+          \begin{equation*}
+              \sum_{n=0}^\infty x^n = \frac{1}{1-x}
+          \end{equation*}
+    \item Se $x \geq 1$, allora la serie è divergente.
+    \item Se $x \leq -1$, allora la serie è indeterminata.
+\end{itemize}
+\section*{Serie armonica}
+La serie armonica è una serie della forma
+\begin{equation*}
+    \sum_{n=1}^\infty \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n}
+\end{equation*}
+La serie armonica è divergente.
+\section*{Serie armonica generalizzata}
+La serie armonica generalizzata è una serie della forma
+\begin{equation*}
+    \sum_{n=1}^\infty \frac{1}{n^p} = 1 + \frac{1}{2^p} + \frac{1}{3^p} + \dots + \frac{1}{n^p}
+\end{equation*}
+Il carattere della serie armonica generalizzata dipende dal valore di $p$
+\begin{itemize}
+    \item Se $p>1$, allora la serie è convergente.
+    \item Se $p \leq 1$, allora la serie è divergente.
+\end{itemize}
+\newpage
+\section*{Criteri di convergenza}
+\textbf{Criterio del confronto}\\
+Siano $a_n$ e $b_n$ due successioni a termini non negativi tali che $a_n \leq b_n$ per ogni $n \in \mathbb{N}$.
+\begin{itemize}
+    \item Se la serie $\sum_{n=1}^\infty b_n$ è convergente, allora la serie
+          $\sum_{n=1}^\infty a_n$ è convergente.\\\\ Se la serie più grande converge
+          anche la serie più piccola converge.
+    \item Se la serie $\sum_{n=1}^\infty a_n$ è divergente, allora la serie
+          $\sum_{n=1}^\infty b_n$ è divergente.\\\\ Se la serie più piccola diverge anche
+          la serie più grande diverge.
+\end{itemize}
+\textbf{Criterio del confronto asintotico}\\
+Siano $a_n$ e $b_n$ due successioni a termini non negativi con $b_n \ne 0$
+\begin{itemize}
+    \item Se $\lim_{n \to \infty} \frac{a_n}{b_n} = l > 0$, allora la serie
+          $\sum_{n=1}^\infty a_n$ e la serie $\sum_{n=1}^\infty b_n$ hanno lo stesso
+          carattere.
+    \item Se $\lim_{n \to \infty} \frac{a_n}{b_n} = 0$ e la serie $\sum_{n=1}^\infty b_n$
+          è convergente, allora la serie $\sum_{n=1}^\infty a_n$ è convergente.
+    \item Se $\lim_{n \to \infty} \frac{a_n}{b_n} = +\infty$ e la serie
+          $\sum_{n=1}^\infty b_n$ è divergente, allora la serie $\sum_{n=1}^\infty a_n$ è
+          divergente.
+\end{itemize}
+\textbf{Criterio degli infinitesimi}\\
+Sia $a_n$ una successione a termini non negativi.
+\begin{itemize}
+    \item Se $\lim_{n \to \infty} n^p \cdot a_n = l>0$, allora la serie
+          \subitem Se $p>1$, allora la serie $\sum_{n=1}^\infty a_n$ è convergente.
+            \subitem Se $p \leq 1$, allora la serie $\sum_{n=1}^\infty a_n$ è divergente.
+    \item Se $\lim_{n \to \infty} n^p \cdot a_n = 0$, allora la serie
+    \subitem Se $p>1$, allora la serie $\sum_{n=1}^\infty a_n$ è convergente.
+    \item  Se $\lim_{n \to \infty} n^p \cdot a_n = +\infty$, allora la serie
+    \subitem Se $p \leq 1$, allora la serie $\sum_{n=1}^\infty a_n$ è divergente.
+\end{itemize}
+\textbf{Criterio della radice}\\
+Sia $a_n$ una successione a termini positivi.
+\begin{itemize}
+    \item Se $\lim_{n \to \infty} \sqrt[n]{a_n} = l < 1$, allora la serie
+          $\sum_{n=1}^\infty a_n$ è convergente.
+    \item Se $\lim_{n \to \infty} \sqrt[n]{a_n} = l > 1$, allora la serie
+          $\sum_{n=1}^\infty a_n$ è divergente.
+    \item Se $\lim_{n \to \infty} \sqrt[n]{a_n} = 1$, allora la serie è indeterminata.
+\end{itemize}
+\newpage
+\textbf{Criterio del rapporto}\\
+Sia $a_n$ una successione a termini positivi.
+\begin{itemize}
+    \item Se $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = l < 1$, allora la serie
+          $\sum_{n=1}^\infty a_n$ è convergente.
+    \item Se $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = l > 1$, allora la serie
+          $\sum_{n=1}^\infty a_n$ è divergente.
+    \item Se $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = 1$, allora la serie è indeterminata.
+\end{itemize}
+\section*{Serie a termini alterni}
+Una serie è detta \textbf{a termini alterni} se è del tipo
+\begin{equation*}
+    \sum_{n=1}^\infty (-1)^{n-1} \cdot a_n = a_1 - a_2 + a_3 - a_4 + \dots + (-1)^{n-1} \cdot a_n
+\end{equation*}
+
+\textbf{Criterio di convergenza per le serie alternate}\\
+Sia $a_n$ una successione a termini positivi e decrescente quindi $a_{n+1}\leq a_n$ ed è infinitesima quindi $\lim_{n \to \infty} a_n = 0$. Allora la serie è convergente.\\\\
+\textbf{Criterio di convergenza assoluta}\\
+Sia $\sum_{n=1}^\infty a_n$ una serie.
+\begin{itemize}
+    \item Se la serie $\sum_{n=1}^\infty |a_n|$ è convergente, allora la serie
+          $\sum_{n=1}^\infty a_n$ è convergente.
+\end{itemize}
+\end{document}

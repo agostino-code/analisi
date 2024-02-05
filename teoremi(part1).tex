@@ -1,0 +1,163 @@
+% !TEX root = C:\Users\Agostino\Analisi\teoremi(part1).tex
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+
+\title{Teoremi}
+\author{Agostino Cesarano}
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+
+\newtcolorbox{calloutbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Attenzione
+}
+\part{Successioni}
+\section{Una successione convergente non può avere due limiti distinti}
+Supponiamo per assurdo che una successione convergente $(a_n)$ abbia due limiti distinti $l_1$ e $l_2$ con $l_1 \neq l_2$. Secondo la definizione di limite, per ogni $\varepsilon > 0$, esistono due numeri naturali $N_1$ e $N_2$ tali che:
+\begin{itemize}
+    \item $|a_n - l_1| < \varepsilon$ per ogni $n > N_1$
+    \item $|a_n - l_2| < \varepsilon$ per ogni $n > N_2$
+\end{itemize}
+
+
+Scegliamo $\varepsilon = \frac{|l_1 - l_2|}{2} > 0$. Allora, per $n > \max\{N_1, N_2\}$, abbiamo sia $|a_n - l_1| < \varepsilon$ che $|a_n - l_2| < \varepsilon$.
+Ma questo implica che $|l_1 - l_2| \leq |a_n - l_1| + |a_n - l_2| < 2\varepsilon = |l_1 - l_2|$, che è un assurdo. Quindi, una successione convergente non può avere due limiti distinti.
+
+\section{Ogni successione convergente è limitata}
+Supponiamo che $a_n$ converga ad $l$ e scegliamo $\varepsilon = 1$, In base alla definizione di limite esiste un indice $N_1$ per cui $|a_n - l| < 1$ per ogni $n > N_1$.
+Utilizzando la diseguaglianza triangolare $|a_n| = |(a_n - l) + l| \le |a_n - l| + |l| < 1 + |l|$. Ma allora, per ogni $n \in N$ si ha $|a_n| \le M = max(|a_1|,|a_2|,...,|a_{N_1}|, 1 + |l|)$
+\begin{calloutbox}
+    Ricorda, tuttavia, che il viceversa non è necessariamente vero: una successione limitata potrebbe non essere convergente. Ad esempio, la successione $(-1)^n$ oscilla tra -1 e +1. È limitata ma non è convergente.
+\end{calloutbox}
+\newpage
+\section{Teorema della permanenza del segno}
+Se $\lim_{{n \to \infty}} a_n = l \neq 0$, esiste un numero $\overline{n}$ tale che $a_n>0$ per ogni $n>\overline{n}$ (esiste un numero $\overline{n}$ tale che $a_n<0$ per ogni $n<\overline{n}$).
+Possiamo scegliere $\varepsilon=\frac{l}{2}$.\\
+Esiste quindi un numero $\overline{n}$ per cui $|a_n-l| < \frac{l}{2}$, per ogni $n>\overline{n}$. \underline{\textit {Definizione di limite}} Ciò equivale \underline{\textit{Per la proèprietà del modulo}}
+\begin{equation}
+    \begin{cases}
+        a_n - l < \frac{l}{2} \\
+        -(a_n - l) < \frac{l}{2}
+    \end{cases}
+    \begin{cases}
+        a_n < \frac{l}{2} + l \\
+        -a_n + l < \frac{l}{2}
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        a_n < \frac{l}{2} + l \\
+        -a_n < \frac{l}{2} - l
+    \end{cases}
+    \begin{cases}
+        a_n < \frac{l+2l}{2} \\
+        -a_n < \frac{l-2l}{2}
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        a_n < \frac{3}{2}l \\
+        a_n > \frac{1}{2}l
+    \end{cases}
+\end{equation}
+\\
+$$\frac{3}{2}l < a_n < \frac{1}{2}l$$
+Se $l>0$ $a_n$ è compreso tra due numeri positivi quindi è positivo.\\
+Se $l<0$ $a_n$ è compreso tra due numeri negativi quindi è negativo.
+
+\section{Teorema dei carabinieri}
+Siano $a_n \leq c_n \leq b_n \forall n \in \mathbb{N}$. Se $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n = l$ allora anche la successione $c_n$ è convergente a $\lim_{n \to \infty} c_n = l$.
+Per ipotesi per ogni $\varepsilon>0$
+$$\exists N_1 \text{ tale che } |a_n - l| < \varepsilon, \forall n > N_1$$
+$$\exists N_2 \text{ tale che } |b_n - l| < \varepsilon, \forall n > N_2$$
+Ricordiamo che le diseguaglianze con il valore assoluto si posso anche scrivere
+\begin{equation}
+    \begin{cases}
+        a_n - l < \varepsilon \\
+        -(a_n - l) < \varepsilon
+    \end{cases}
+    \begin{cases}
+        a_n < \varepsilon + l \\
+        -a_n + l < \varepsilon
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        a_n < \varepsilon + l \\
+        -a_n < \varepsilon - l
+    \end{cases}
+    \begin{cases}
+        a_n < \varepsilon + l \\
+        -a_n < \varepsilon - l
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    \begin{cases}
+        a_n < l + \varepsilon \\
+        a_n > l - \varepsilon
+    \end{cases}
+\end{equation}
+
+$$l-\varepsilon < a_n < l + \varepsilon$$
+$$l-\varepsilon < b_n < l + \varepsilon$$
+Quindi se $n>N = max(N_1,N_2)$ risulta, $$l-\varepsilon < a_n < l + \varepsilon \leq c_n\leq l-\varepsilon < b_n < l + \varepsilon$$
+Perciò $|c_n - l|<\varepsilon$ per ogni $n>N$, come volevasi dimostrare.
+
+\section{Teorema sulle successioni monotone}
+Ogni successione monotona ammette limite. In particolare ogni successione monotona e limita è convergente, cioè ammette limite finito.
+Sia $(a_n)_n$ una successione reale monotona decrescente e sia $l$ l'estremo inferiore della successione. Consideriamo il caso in cui $l$ è finito. Per definizione di estremo inferiore abbiamo che:
+
+$$l \leq a_n \quad \forall n \in N$$
+
+ed inoltre, fissato $\varepsilon > 0$, esiste $n_\varepsilon$ tale che:
+
+$$l \leq a_{n_\varepsilon} < l+\varepsilon$$
+
+Per ipotesi sappiamo che la successione è decrescente, ne segue che:
+
+$$l \leq a_n \leq a_{n_\varepsilon} < l+\varepsilon \quad \forall n \geq n_\varepsilon$$
+
+Dalla definizione di limite si ha che:
+
+$$\lim_{n \to \infty}a_n = l = \inf_{n \in N}a_n$$
+
+Supponiamo ora che $\inf_{n \in N}a_n = -\infty$. Allora $\forall M > 0, \exists n_M \in N$ tale che $a_{n_M} < -M$ e per la decrescenza della successione segue che:
+
+$$a_n \leq a_{n_M} < -M \quad \forall n \geq n_M$$
+
+e quindi $\lim_{n \to \infty}a_n = -\infty = \inf_{n \in N}a_n$.
+
+\section{Teorema di Bolzano-Weierstrass}
+Sia $a_n$ una successione limitata. Allora esiste almeno una sua estratta convergente.
+Per ipotesi la successione $a_n$ è limitata; pertanto esistono due costanti $A,B \in \mathbb{R}$ tali che $A \leq a_n \leq B, \forall n \in \mathbb{N}$.
+\\ Suddividiamo l'intervallo $[A,B]$ mediante il punto di mezzo $$C=\frac{A+B}{2}$$ e consideriamo due intervalli $[A,C], [C,B]$.Uno almeno dei due intervalli $[A,C], [C,B]$ contiene infiniti termini della successione $(a_n)_n$, più precisamente, 
+dato che l'insieme $\mathbb{N}$ dei numeri naturali è infinto risulta anche infinito uno tra i due sottoinsiemi di $\mathbb{N}$.
+\\ Scegliamo questo intervallo (o uno dei due se entrambi contengono un numero infinito di termini della successione) e lo chiamiamo $[A_1, B_1]$. Si ha
+$$B_1-A_1=\frac{B-A}{2}$$
+Sia $a_{n_1}$ qualunque elemento della successione $(a_n)$ che appartiene a $[A_1, B_1]$. Sia ora
+$$C_1=\frac{A_1+B_1}{2}$$
+e, ripetendo il ragionamento, consideriamo quello tra i due intervalli $[A_1, C_1]$ e $[C_1, B_1]$ che contenga $a_n (n > n_1)$ per un numero infinito di $n$ e lo chiamiamo
+$[A_2, B_2]$. Sia $a_{n_2}$ un qualunque elemento della successione $(a_n) (n > n_1)$ che appartiene a $[A_2, B_2]$.
+Continuando in questa maniera costruiamo tre successioni $A_k, B_k$ e $a_{n_k}$ tali che
+\begin{enumerate}
+    \item $A_k$ e $B_k$ è monotona e limitata;
+    $$A \leq A_k \leq A_{k+1} < B_{k+1} \leq B_k \leq B$$
+    \item $B_k - A_k = \frac{B-A}{2^k}, \forall k \in \mathbb{N}$;
+    \item $(a_{n_k}) k \in \mathbb{N}$ è una sottosuccessione di $(a_n)$;
+    \item $A_k \leq a_{n_k} \leq B_k, \forall k \in \mathbb{N}$.
+\end{enumerate}
+Poichè $(a_{n_k})$ è monotona e limitata (superiormente da B e inferiormente da A) \underline{\textit {Per il teorema sulle successioni monotone}}
+allora esiste il $\lim_{k \to \infty}A_k = l$ e per la 2. anche $\lim_{k \to \infty}B_k = l$, per la 4. e il teorema del confronto, \underline{\textit {Teorema dei carabinieri}} si ha $\lim_{k \to +\infty}a_{n_k} = l$.
+\end{document}

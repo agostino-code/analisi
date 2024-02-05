@@ -1,0 +1,203 @@
+\documentclass{article}
+
+\usepackage{amsmath} % For mathematical symbols and environments
+\usepackage{amssymb} % For additional mathematical symbols
+\usepackage{tcolorbox}
+
+\newtcolorbox{esbox}{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    title=Esempio
+}
+
+\title{Definizioni}
+\author{Agostino Cesarano}
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+
+\part{Successioni}
+Una successione è una legge che associa ad ogni numero naturale $n$ un numero
+reale $a_n$. Una successione quindi è una funzione
+$f:\mathbb{N}\rightarrow\mathbb{R}$.
+% Definizione di successione convergente %
+\section*{Limiti di successioni}
+Una successione $a_n$ si dice convergente a $l\in\mathbb{R}$ se $\lim_{n\to\infty}a_n=l$.\\
+$\forall \varepsilon>0$ $\exists \delta>0$ tale che $|a_n-l|<\varepsilon\quad\forall n\geq \delta$.\\\\
+% Definizione di successione divergente %
+Una successione $a_n$ si dice divergente a $+\infty$ se
+$\lim_{n\to\infty}a_n=+\infty$.\\ $\forall M>0$ $\exists \delta>0$ tale che
+$a_n>M\quad\forall n\geq \delta$.\\\\ Una successione $a_n$ si dice divergente
+a $-\infty$ se $\lim_{n\to\infty}a_n=-\infty$.\\ $\forall M>0$ $\exists
+    \delta>0$ tale che $a_n<-M\quad\forall n\geq \delta$.\\\\
+% Definizione di successione regolare %
+Una successione $a_n$ si dice regolare se $\exists\lim_{n\to\infty}a_n$.\\\\
+Una successione che converge a $0$ si dice successione infinitesima.\\\\ Una
+successione che diverge a $+\infty$ si dice successione infinita positiva.\\\\
+Una successione che diverge a $-\infty$ si dice successione infinita negativa.
+%Tabella delle operazioni con i limiti%
+\newpage
+\section*{Operazioni sui limiti}
+Valgono le seguenti proprietà, dette \textit{operazioni sui limiti}:
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Operazione} & \multicolumn{2}{c|}{\textbf{Convergenza}} & \textbf{Limite}                \\
+        \hline
+        $a_n+b_n$           & $a_n\to l$                                & $b_n\to m$       & $l+m$       \\
+        \hline
+        $a_n-b_n$           & $a_n\to l$                                & $b_n\to m$       & $l-m$       \\
+        \hline
+        ${a_n}\cdot{b_n}$   & ${a_n}\to{l}$                             & ${b_n}\to{m}$    & $l \cdot m$ \\
+        \hline
+        $a_n/b_n$           & $a_n\to l$                                & $b_n\to m\neq 0$ & $l/m$       \\
+        \hline
+    \end{tabular}
+\end{center}
+%Tabella delle forme indeterminate%
+Valgono inoltre analoghe proprietà per successioni divergenti:
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $a_n \to l$          & $b_n\to +\infty$   & $\Rightarrow$ & $a_n + b_n \to +\infty$     \\
+        \hline
+        $a_n \to l$          & $b_n\to -\infty$   & $\Rightarrow$ & $a_n + b_n \to -\infty$     \\
+        \hline
+        $a_n \to +\infty$    & $b_n\to +\infty$   & $\Rightarrow$ & $a_n + b_n \to +\infty$     \\
+        \hline
+        $a_n \to -\infty$    & $b_n\to -\infty$   & $\Rightarrow$ & $a_n + b_n \to -\infty$     \\
+        \hline
+        $a_n \to l>0$        & $b_n\to +\infty$   & $\Rightarrow$ & $a_n \cdot b_n \to +\infty$ \\
+        \hline
+        $a_n \to l<0$        & $b_n\to +\infty$   & $\Rightarrow$ & $a_n \cdot b_n \to -\infty$ \\
+        \hline
+        $a_n \to +\infty$    & $b_n\to +\infty$   & $\Rightarrow$ & $a_n \cdot b_n \to +\infty$ \\
+        \hline
+        $a_n \to +\infty$    & $b_n\to -\infty$   & $\Rightarrow$ & $a_n \cdot b_n \to -\infty$ \\
+        \hline
+        $a_n \to -\infty$    & $b_n\to -\infty$   & $\Rightarrow$ & $a_n \cdot b_n \to +\infty$ \\
+        \hline
+        $a_n \to l$          & $b_n\to \pm\infty$ & $\Rightarrow$ & $a_n/b_n \to 0$             \\
+        \hline
+        $a_n \to l>0$        & $b_n\to +\infty$   & $\Rightarrow$ & $a_n/b_n \to +\infty$       \\
+        \hline
+        $a_n \to l<0$        & $b_n\to +\infty$   & $\Rightarrow$ & $a_n/b_n \to -\infty$       \\
+        \hline
+        $a_n \to l\neq0$     & $b_n\to 0$         & $\Rightarrow$ & $|a_n/b_n| \to +\infty$     \\
+        \hline
+        $a_n \to \pm \infty$ & $b_n\to 0$         & $\Rightarrow$ & $|a_n/b_n| \to +\infty$     \\
+        \hline
+    \end{tabular}
+\end{center}
+Risultano esclusi alcuni casi che schematizziamo nelle forme sequenti, dette \textit{forme indeterminate}:\\
+\[\infty-\infty,\qquad 0\cdot\infty,\qquad \infty/\infty,\qquad 0/0\]
+Altre forme indeterminate, legate alla elevazione a potenza, sono:
+\[\infty^0,\qquad 1^\infty,\qquad 0^0,\qquad \infty^\infty\]
+%Limiti notevoli%
+\section*{Limiti notevoli}
+\begin{equation}
+    \lim_{n\to+\infty}a^n=
+    \begin{cases}
+        0                 & -1<a<1  \\
+        1                 & a=1     \\
+        +\infty           & a>1     \\
+        \text{non esiste} & a\leq-1
+    \end{cases}
+\end{equation}
+\begin{equation}
+    \lim_{n\to+\infty}n^b=
+    \begin{cases}
+        0       & b<0 \\
+        1       & b=0 \\
+        +\infty & b>0
+    \end{cases}
+\end{equation}
+\begin{equation}
+    \lim_{n\to+\infty}\sqrt[n]{a}=\lim_{n\to+\infty}a^\frac{1}{n}=1
+\end{equation}
+\begin{equation}
+    \lim_{n\to+\infty}\sqrt[n]{a^b}=\lim_{n\to+\infty}a^\frac{b}{n}=1\quad\forall b>\in\mathbb{R}
+\end{equation}
+%Gerarchia dei infiniti%
+\begin{center}
+    Gerarchia degli infiniti in ordine crescente:
+    \[\log n, \quad n^b, \quad a^n, \quad n!, \quad n^n \]
+    Valgono quindi i sequenti limiti notevoli:
+\end{center}
+\begin{equation}
+    \lim_{n\to+\infty}\frac{\log n}{n^b}=0 \quad (b>0)
+\end{equation}
+\begin{equation}
+    \lim_{n\to+\infty}\frac{n^b}{a^n}=0 \quad (a>1,b>0)
+\end{equation}
+\begin{equation}
+    \lim_{n\to+\infty}\frac{a^n}{n!}=0 \quad (a>1)
+\end{equation}
+\begin{center}
+    Molto importante è il seguente limite notevole:
+\end{center}
+\begin{equation}
+    \lim_{n\to+\infty}\left(1+\frac{1}{n}\right)^n=e
+\end{equation}
+\begin{center}
+    più in generale:
+\end{center}
+\begin{equation}
+    \lim_{n\to+\infty}\left(1+\frac{a}{n}\right)^n=e^a
+\end{equation}
+\begin{center}
+    Limite notevole per le successioni trigonometriche:
+\end{center}
+\begin{equation}
+    \lim_{n\to0}\frac{\sin n}{n}=1
+\end{equation}
+\begin{center}
+    Infine ricordiamo le proprietà seguenti che discendono dai teoremi sulle medie aritmetiche e geometriche di una successione:
+\end{center}
+\begin{equation}
+    \lim_{n\to+\infty}\frac{a_n}{n} = \lim_{n\to\infty}(a_{n+1}-a_n)
+\end{equation}
+\begin{equation}
+    \lim_{n\to+\infty}\sqrt[n]{a_n} = \lim_{n\to\infty}\frac{a_{n+1}}{a_n} \quad a_n>0\quad \forall n\in\mathbb{N}
+\end{equation}
+%Definizione di successione limitata%
+\section*{Successioni limitate}
+Una successione $a_n$ si dice limitata se $\exists M>0$ tale che $|a_n|\leq
+    M\quad\forall n\in\mathbb{N}$.\\ $\exists M>0$ tale che $-M\leq a_n\leq
+    M\quad\forall n\in\mathbb{N}$.\\\\
+% Esistono successioni limitate non regolari con esempio in callout box%
+Esistono successioni limitate non regolari.
+\begin{esbox}
+    Ad esempio $a_n=(-1)^n$ è limitata ma non regolare.\\
+    Poichè $\lim_{n\to\infty}a_n$ non esiste.
+\end{esbox}
+\newpage
+% Definizione di successione monotona %
+\section*{Successioni monotone}
+Una successione $a_n$ è monotona se verifica una delle seguenti proprietà:
+\begin{itemize}
+    \item Una successione $a_n$ si dice crescente se $a_n\leq a_{n+1}\quad\forall
+              n\in\mathbb{N}$
+    \item Una successione $a_n$ si dice strettamente crescente se $a_n<
+              a_{n+1}\quad\forall n\in\mathbb{N}$
+    \item Una successione $a_n$ si dice decrescente se $a_n\geq a_{n+1}\quad\forall
+              n\in\mathbb{N}$
+    \item Una successione $a_n$ si dice strettamente decrescente se $a_n>
+              a_{n+1}\quad\forall n\in\mathbb{N}$
+\end{itemize}
+Una successione costante è sia crescente che decrescente. Quindi una successione costante è monotona.
+%Successioni estratte%
+\section*{Successioni estratte}
+Una successione $a_n$ si dice estratta da una successione $b_n$ se $a_n=b_{n_k}$ per qualche successione $n_k$.\\\\
+Se $a_n$ è una successione convergente a $l\in\mathbb{R}$, allora ogni sua sottosuccessione $a_{n_k}$ è convergente a $l$.
+%Successioni di Cauchy%
+\section*{Successioni di Cauchy}
+Ogni successione convergente è di Cauchy.\\\\
+Ogni successione di Cauchy è limitata.\\\\
+Se una successione di Cauchy $a_n$ contiene una estratta $a_{n_k}$ convergente a $l\in\mathbb{R}$, allora anche $a_n$ è convergente a $l$.\\\\
+%Critero di convergenza di Cauchy%
+\textbf{Critero di convergenza di Cauchy} Una successione $a_n$ è convergente se e solo se è di Cauchy.
+\end{document}
