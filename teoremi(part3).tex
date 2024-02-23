@@ -18,6 +18,7 @@
     fonttitle=\bfseries,
     title=Attenzione
 }
+\setcounter{part}{2}
 \part{Funzioni derivabili}
 \section{Teorema di Fermat}
 Sia $f(x)$ una funzione definita in $[a,b]$ e sia $x_0$ un punto di massimo o minimo relativo interno ad $[a,b]$. Se $f$ è derivabile in $x_0$, risulta $f'(x_0)=0$.\\
@@ -61,4 +62,9 @@ Di conseguenza, proprio in forza del teorema di Rolle sappiamo per certo che esi
 Calcoliamo anzitutto $g'(x)$
 $$g'(x)=f'(x)- \dfrac{f(b)-f(a)}{b-a}$$ ovvero
 $$f'(x_0) =\dfrac{f(b)-f(a)}{b-a}$$ dimostrando il teorema.
+\section{Teorema di Cauchy}
+Sia $f(x)$ e $g(x)$ due funzioni continue in $[a,b]$ e derivabili in $(a,b)$. Esiste un punto $x_0 \in (a,b)$ per cui
+$$\frac{f(b)- f(a)}{g(b)- g(a)} = \frac{f'(x)}{g'(x)}$$
+Il teorema di Cauchy è una generalizzazione del teorema di Lagrange. Infatti, se $g(x)$ è una funzione costante, allora $g'(x)=0$ e il teorema di Cauchy si riduce al teorema di Lagrange.
+
 \end{document}

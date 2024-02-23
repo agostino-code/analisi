@@ -1,0 +1,45 @@
+% !TEX root = C:\Users\Agostino\Analisi\teoremi(part4).tex
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+
+\title{Teoremi}
+\author{Agostino Cesarano}
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+\newtcolorbox{calloutbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Attenzione
+}
+
+\setcounter{part}{3}
+\part{Integrali}
+\section{Teorema della media integrale}
+In una funzione $f(x)$ continua nell'intervallo $[a,b]$ esiste un punto $x_{0}
+    \in [a,b]$ tale che è soddisfatta la seguente uguaglianza $$f(x_{0}) =
+    \frac{1}{b-a} \int_{a}^{b} f(t) \, dt $$ $$\int_{a}^b f(x) \, dx = f(x_{0})
+    \cdot (b-a)$$ \textit{Dato che $f$ è \underline{continua}, vale il Teorema di
+    Weierstrass}, e possiamo scrivere che: $$ m \leq f(x) \leq M \text{ } \forall x
+    \in [a,b] $$ Per le proprietà degli Integrali (in questo caso la \textbf{monotonia
+dell'integrale}) ci permettono di \textbf{integrare tutti i membri di questa catena
+di disuguaglianze mantenendo inalterati i versi delle disuguaglianze stesse}:
+$$ \int_{a}^{b} m \, dt \leq \int_{a}^{b} f(t) \, dt \leq \int_{a}^{b} M \, dt
+$$ Il \textit{primo e terzo integrale sono banali} $$ \int_{a}^{b} m \, dt =
+    |mx|_{a}^b = mb - ma = m(b-a) \\ \int_{a}^{b} M \, dt = |mx|_{a}^b = Mb - Ma =
+    M(b-a) $$ e possiamo riscrivere la catena di disuguaglianze in questo modo $$
+    m(b-a) \leq \int_{a}^{b} f(t) \, dt \leq M(b-a) $$ e dividendo per $b-a$ che
+sarà sempre diverso da zero perché ($a \neq b$) si ha $$ m \leq \frac{1}{b-a}
+    \int_{a}^b f(t) \, dt \leq M $$ e siamo arrivati alla conclusione che il valore
+$\frac{1}{b-a} \int_{a}^b f(t) \, dt$ è compreso tra $m$ e $M$, e dato che è
+continua assume in $[a,b]$ tutti i valori di $m$ e $M$, secondo il
+(Secondo)Teorema dell'esistenza dei valori intermedi, quindi esiste sicuramente un $c \in [a,b]$ tale per cui $$
+    f(c) = \frac{1}{b-a} \int_{a}^b f(t) \, dt $$
+
+\end{document}

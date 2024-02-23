@@ -21,22 +21,60 @@
 \setcounter{part}{1}
 \part{Funzioni continue}
 \section{Permanenza del segno}
-Sia $f(x)$ una funzione, e sia \(x_0 \in \mathbb{R}\). Se \(f\) è continua in \(x_0\), e se \(f(x_0)\) è diverso da zero (e quindi ha un segno), allora la funzione mantiene lo stesso segno di \(f(x_0)\) in tutto un intorno di \(x_0\).
+Sia $f(x)$ una funzione, e sia \(x_0 \in \mathbb{R}\). Se \(f\) è continua in
+\(x_0\), e se \(f(x_0)\) è diverso da zero (e quindi ha un segno), allora la
+funzione mantiene lo stesso segno di \(f(x_0)\) in tutto un intorno di \(x_0\).
 
-In altre parole, se il limite di una funzione in un punto è positivo, allora la funzione sarà positiva in un intorno di quel punto. Analogamente, se il limite è negativo, la funzione sarà negativa in un intorno del punto.
+In altre parole, se il limite di una funzione in un punto è positivo, allora la
+funzione sarà positiva in un intorno di quel punto. Analogamente, se il limite
+è negativo, la funzione sarà negativa in un intorno del punto.
 \begin{calloutbox}
-È importante notare che questo teorema si applica solo quando il limite della funzione è diverso da zero. Se il limite è zero, la funzione può assumere valori sia positivi che negativi in un intorno del punto. 
+    È importante notare che questo teorema si applica solo quando il limite della funzione è diverso da zero. Se il limite è zero, la funzione può assumere valori sia positivi che negativi in un intorno del punto.
 \end{calloutbox}
 \section{Teorema dell'esistenza degli zeri (Teorema di Bolzano)}
-Sia $f(x)$ una funzione continua su un intervallo chiuso \([a, b]\), e supponiamo che \(f(a)\) e \(f(b)\) abbiano segni opposti, cioè \(f(a) \cdot f(b) < 0\). Allora esiste almeno un numero \(c \in (a, b)\) tale che \(f(c) = 0\).
+Sia $f(x)$ una funzione continua su un intervallo chiuso \([a, b]\), e
+supponiamo che \(f(a)\) e \(f(b)\) abbiano segni opposti, cioè \(f(a) \cdot
+f(b) < 0\). Allora esiste almeno un numero \(c \in (a, b)\) tale che \(f(c) =
+0\).\\ \underline{\textit {Metodo di bisezione}} Possiamo supporre che $f(a) <
+    0$ e che $f(b) > 0$ abbiamo un intervallo $I_{0} := [a,b]$, e troviamo il punto
+medio quindi $$c = \frac{a+b}{2}$$ Se f(c) è maggiore di zero $f(c) > 0$ allora
+la funzione ha segno discorde rispetto a $f(a)$, quindi prendo in
+considerazione l'intervallo $[a,c]$. $$[a_{1},b_{1}] = [a,c]$$ Troviamo il
+nuovo punto medio $$c_{1} = \frac{a_{1}+b_{1}}{2}$$ e ripetiamo il
+procedimento.\\\\ Se $f(c) < 0$ allora prendo in considerazione l'intervallo
+$[c,b]$ poi cerco il punto medio e ripeto il procedimento.\\\\ Ripeto il
+procedimento finché non trovo un punto $c$ tale che $f(c) = 0$.\\ Ad ogni passo
+le \textbf{dimensioni dell'intervallo si dimezzano} $$b_n-a_n = \frac{b-a}{2^n}
+$$ cosi abbiamo due successioni: \begin {itemize}
+\item $(a_{n}) \, n \in \mathbb{N}$ crescente e superiormente limitata da $b$.
+\item $(b_{n}) n \in \mathbb{N}$ decrescente e inferiormente limitata da $a$.
+\end {itemize}
+Essendo crescente e limitata, per il \underline{\textit {teorema del limite delle successioni monotone}}, la successione $a_n$ ha un limite finito che chiamo $x_{0}$.
+
+$$\lim\limits_{ n \to \infty } a_{n} = x_{0}$$
+La successione $b_n$ ha un limite che ricaviamo dall'espressione precedente:
+
+$$\lim\limits_{ n \to \infty } b_{n} = \lim\limits_{ n \to \infty } a_n + \frac{b-a}{2^n} = x_{0} + 0 = x_{0}$$
+Quindi il valore di $f(x_{0})$ è uguale al limite:
+$$
+    f(x_{0}) = \lim\limits_{ n \to \infty } f(a_{n}) = \lim\limits_{ n \to \infty } f(b_{n}) = 0$$
+Sapendo che $f(a_{n})\leq 0$ e $f(b_{n})\geq0$ possiamo conculdere che $f(x_{0}) = 0$.
 \section{(Primo)Teorema dellìesistenza dei valori intermedi}
-Una funzione continua in un intervallo $[a,b]$ assume tutti i valori compresi tra $f(a)$ e $f(b)$. \underline{\textit {Conseguenza del teorema dell'esistenza degli zeri}}
+Una funzione continua in un intervallo $[a,b]$ assume tutti i valori compresi
+tra $f(a)$ e $f(b)$. \underline{\textit {Conseguenza del teorema dell'esistenza
+        degli zeri}}
 \section{Teorema di Weierstrass}
-Sia $f(x)$ una funzione continua in un intervallo chiuso e limitato $[a,b]$. Allora $f(x)$ assume massimo e minimo in $[a,b]$, cioè esistono in $[a,b] x_1,x_2$ tali che
-$$f(x_1) \leq f(x) \leq f(x_2), \forall x \in [a,b]$$
-I numeri $x_1, x_2$ sono detti rispettamente punti di minimo e massimo per $f(x)$ nell' intervallo $[a,b]$.
+Sia $f(x)$ una funzione continua in un intervallo chiuso e limitato $[a,b]$.
+Allora $f(x)$ assume massimo e minimo in $[a,b]$, cioè esistono in $[a,b]$
+$x_1,x_2$ tali che $$f(x_1) \leq f(x) \leq f(x_2), \forall x \in [a,b]$$ I
+numeri $x_1, x_2$ sono detti rispettamente punti di minimo e massimo per $f(x)$
+nell' intervallo $[a,b]$.
 \section{(Secondo)Teorema dell'esistenza dei valori intermedi}
-Una funzione continua in un intervallo $[a,b]$ assume tutti i valori compresi tra il minimo e il massimo. \underline{\textit {Conseguenza del teorema di Weierstrass}}
+Una funzione continua in un intervallo $[a,b]$ assume tutti i valori compresi
+tra il minimo e il massimo. \underline{\textit {Conseguenza del teorema di
+        Weierstrass}}
 \section{Teorema di continuità delle funzioni inverse}
-Sia $f(x)$ una funzione strettamente monotona\footnote{Strettamente crescente o Strettamente decrescente} in $[a,b]$. Se $f(x)$ è continua, anche la funzione $f^{-1}$ è continua.
+Sia $f(x)$ una funzione strettamente monotona\footnote{Strettamente crescente o
+    Strettamente decrescente} in $[a,b]$. Se $f(x)$ è continua, anche la funzione
+$f^{-1}$ è continua.
 \end{document}
