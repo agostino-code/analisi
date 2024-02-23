@@ -27,19 +27,81 @@ In una funzione $f(x)$ continua nell'intervallo $[a,b]$ esiste un punto $x_{0}
     \frac{1}{b-a} \int_{a}^{b} f(t) \, dt $$ $$\int_{a}^b f(x) \, dx = f(x_{0})
     \cdot (b-a)$$ \textit{Dato che $f$ è \underline{continua}, vale il Teorema di
     Weierstrass}, e possiamo scrivere che: $$ m \leq f(x) \leq M \text{ } \forall x
-    \in [a,b] $$ Per le proprietà degli Integrali (in questo caso la \textbf{monotonia
-dell'integrale}) ci permettono di \textbf{integrare tutti i membri di questa catena
-di disuguaglianze mantenendo inalterati i versi delle disuguaglianze stesse}:
-$$ \int_{a}^{b} m \, dt \leq \int_{a}^{b} f(t) \, dt \leq \int_{a}^{b} M \, dt
-$$ Il \textit{primo e terzo integrale sono banali} $$ \int_{a}^{b} m \, dt =
-    |mx|_{a}^b = mb - ma = m(b-a) \\ \int_{a}^{b} M \, dt = |mx|_{a}^b = Mb - Ma =
-    M(b-a) $$ e possiamo riscrivere la catena di disuguaglianze in questo modo $$
-    m(b-a) \leq \int_{a}^{b} f(t) \, dt \leq M(b-a) $$ e dividendo per $b-a$ che
-sarà sempre diverso da zero perché ($a \neq b$) si ha $$ m \leq \frac{1}{b-a}
-    \int_{a}^b f(t) \, dt \leq M $$ e siamo arrivati alla conclusione che il valore
-$\frac{1}{b-a} \int_{a}^b f(t) \, dt$ è compreso tra $m$ e $M$, e dato che è
-continua assume in $[a,b]$ tutti i valori di $m$ e $M$, secondo il
-(Secondo)Teorema dell'esistenza dei valori intermedi, quindi esiste sicuramente un $c \in [a,b]$ tale per cui $$
-    f(c) = \frac{1}{b-a} \int_{a}^b f(t) \, dt $$
+    \in [a,b] $$ Per le proprietà degli Integrali (in questo caso la
+\textbf{monotonia dell'integrale}) ci permettono di \textbf{integrare tutti i
+    membri di questa catena di disuguaglianze mantenendo inalterati i versi delle
+    disuguaglianze stesse}: $$ \int_{a}^{b} m \, dt \leq \int_{a}^{b} f(t) \, dt
+    \leq \int_{a}^{b} M \, dt $$ Il \textit{primo e terzo integrale sono banali} $$
+    \int_{a}^{b} m \, dt = |mx|_{a}^b = mb - ma = m(b-a) \\ \int_{a}^{b} M \, dt =
+    |mx|_{a}^b = Mb - Ma = M(b-a) $$ e possiamo riscrivere la catena di
+disuguaglianze in questo modo $$ m(b-a) \leq \int_{a}^{b} f(t) \, dt \leq
+    M(b-a) $$ e dividendo per $b-a$ che sarà sempre diverso da zero perché ($a \neq
+    b$) si ha $$ m \leq \frac{1}{b-a} \int_{a}^b f(t) \, dt \leq M $$ e siamo
+arrivati alla conclusione che il valore $\frac{1}{b-a} \int_{a}^b f(t) \, dt$ è
+compreso tra $m$ e $M$, e dato che è continua assume in $[a,b]$ tutti i valori
+di $m$ e $M$, secondo il (Secondo)Teorema dell'esistenza dei valori intermedi,
+quindi esiste sicuramente un $c \in [a,b]$ tale per cui $$ f(c) = \frac{1}{b-a}
+    \int_{a}^b f(t) \, dt $$
+\section{Teorema fondamentale del calcolo integrale}
+Il \textbf{teorema fondamentale del calcolo integrale} stabilisce una relazione
+fondamentale tra la derivata e l'integrale di una funzione.
 
+Esso afferma che se una funzione $f(x)$ è una primitiva per un'altra funzione
+$F(x)$, allora la derivata dell'integrale definito $\int_a^x f(t) \, dt$ è
+uguale alla funzione originale $f(x)$. Formalmente, questo teorema può essere
+enunciato così:
+
+Se $F(x)$ è una qualsiasi primitiva di $f(x)$, allora per ogni $x$
+nell'intervallo in cui $f(x)$ è continua, abbiamo: $$ F'(x) = f(x) $$ $$ \left(
+    \int_a^x f(t) \, dt \right)' = f(x) $$
+
+In altre parole, il teorema fondamentale del calcolo fornisce un metodo per
+\textbf{calcolare l'integrale definito di una funzione, fornendo la relazione
+    diretta tra la primitiva di una funzione e l'integrale definito di quella
+    funzione.}
+
+Si consideri un punto $x_0 \in (a,b)$ e una quantità $h > 0$ **sufficientemente
+piccola**, in modo che $x_0 + h$ sia ancora in $(a,b)$ Grazie alle proprietà
+dell'integrale, si ha che $$\int_a^{x_0} f(t)dt + \int_{x_0}^{x_0+h} f(t)dt =
+    \int_a^{x_0+h}f(t)dt$$ Inoltre, per definizione di $F(x)$, valgono le seguenti
+uguaglianze:$$F(x_0) = \int_a^{x_0} f(t) \, dt \text{ e } F(x_0 + h) =
+    \int_a^{x_0+h}f(t) \, dt$$ A questo punto si ottiene facilmente questa
+relazione: $$F(x_0+h) - F(x_0) = \int_{x_0}^{x_0 + h}f(t)dt$$ Dato che $f$ è
+continua su $(a,b)$, si può applicare il \textit{\underline{Teorema della media
+        integrale}}, che assicura che esiste un $c \in (x_0, x_0 + h)$ tale per cui
+$$\int_{x_0}^{x_0 + h}f(t) \, dt = f(c) \cdot (x_0 +h - x_0) = f(c) \cdot
+    h$$Quindi la relazione può essere rielaborata così: $$F(x_0+h) - F(x_0) = f(c)
+    \, h \quad \Rightarrow \quad \frac{F(x_0+h) - F(x_0)}{h} = f(c)$$ Si può far
+passare al limite entrambi i membri, ottenendo$$\lim_{h \to 0} \frac{F(x_0+h) -
+        F(x_0)}{h} = \lim_{h \to 0}f(c)$$\\ Si ha che $F'(x_0) = \lim_{h \to
+        0}f(c)$.\\Analizzando il termine $\lim_{h \to 0}f(c)$, si sfrutta la continuità
+di $f$ per affermare che $$\lim_{h \to 0}f(c) = f(L)$$ dove $L = \lim_{h \to
+        0}c$ Dato che vale sempre $x_0 \leq c \leq x_0 + h$, e che $\lim_{h \to 0}x_0 =
+    x_0$ e $\lim_{h \to 0} ( x_0 + h )= x_0$, allora per il \underline{Teorema del
+    confronto} si ha che \[L = \lim_{h \to 0}c = x_0\] e quindi che \[\lim_{h \to 0}f(c) = f(L) = f(x_0)\]
+In sostanza si è mostrato che $F'(x_0) = f(x_0)$, il che significa che $F$ è
+derivabile, e che calcolare la sua derivata in un qualunque punto $x_0 \in
+    (a,b)$ è come calcolare $f$ in tale punto, così come si voleva dimostrare.
+\section{(Secondo) Teorema fondamentale del calcolo integrale}
+Il \textbf{secondo teorema fondamentale del calcolo integrale} (detta anche
+formula fondamentale del calcolo integrale) afferma che se $f$ è una funzione
+continua su un intervallo chiuso $[a,b]$ e $G$ è una primitiva di $f$ su
+quell'intervallo, allora l'integrale definito di $f$ da $a$ a $b$ può essere
+calcolato come la differenza tra i valori di $G$ nei punti $b$ e $a$:
+
+$$
+    \int_a^b f(x) \, dx = G(b) - G(a) = G(x)|_{a}^{b}
+$$
+dove $G$ è una \textbf{Funzione primitiva} di $f(x)$
+
+Questo teorema rappresenta una relazione fondamentale tra il calcolo dell'area
+sotto una curva (integrale) e l'antiderivata della funzione che descrive la
+curva stessa.
+
+Sia $G$ la primitiva definita da $F(x)= \int_{a}^x f(t) \, dt + C \, \forall c
+    \in \mathbb{R}$ allora $$ F(b)- F(a)= \int_{a}^b f(t) \, dt + C - \int_{a}^a
+    f(t) \, dt - C $$
+
+visto che le due $C$ si annullano e $\int_{a}^a f(t) \, dt = 0$ rimane che $$
+    F(b)- F(a)= \int_{a}^b f(t) \, dt $$ e cosi lo dimostriamo.
 \end{document}
