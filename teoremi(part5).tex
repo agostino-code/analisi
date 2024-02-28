@@ -1,0 +1,74 @@
+% !TEX root = C:\Users\Agostino\Analisi\teoremi(part5).tex
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+
+\title{Teoremi}
+\author{Agostino Cesarano}
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+\newtcolorbox{calloutbox}{
+    colback=red!5!white,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Attenzione
+}
+
+\setcounter{part}{4}
+\part{De L'Hôpital e Taylor}
+\section{Teorema di De L'Hôpital}
+Siano f e g due funzioni derivabili in un intorno del punto $x_{0}$ tale che
+% lim di f(x) e g(x) per x che tende a x_{0} sono entrambi infiniti o entrambi 0
+\begin{equation*}
+    \lim_{x \to x_{0}} f(x) = \lim_{x \to x_{0}} g(x) = 0 \quad \text{o} \quad \lim_{x \to x_{0}} f(x) = \lim_{x \to x_{0}} g(x) = \pm \infty
+\end{equation*}
+se $g(x), g'(x)\neq 0$ in un intorno di $x_{0}$, allora
+\begin{equation*}
+    \lim_{x \to x_{0}} \frac{f(x)}{g(x)}= \lim_{x \to x_{0}} \frac{f'(x)}{g'(x)}
+\end{equation*}
+$f, g$ continue in $x_{0}$
+
+$$
+    \lim\limits_{ x \to x_{0} } \frac{f'(x)}{g'(x)} = \frac{f'(x_{0})}{g'(x_{0})}
+$$
+per ipotesi abbiamo che $f(x_{0})=g(x_{0})= 0$
+$$
+    \lim\limits_{ x \to x_{0} } \frac{f(x)}{g(x)} = \lim\limits_{ x \to \infty } \frac{f(x)-f(x_{0})}{g(x)-g(x_{0})} = \lim\limits_{ x \to x_{0} } \frac{\frac{f(x)-f(x_{0})}{x-x_{0}} }{\frac{g(x)-g(x_{0})}{x-x_{0}}} = \frac{f'(x)}{g'(x)}
+$$
+dividendo numeratore e denominatore per $x-x_{0}$ è da li otteniamo il \textbf{rapporto incrementale}, quindi la derivata di $f(x)$ e $g(x)$.
+\newpage
+\section*{Sviluppo di Taylor}
+Sia $f(x)$ una funzione derivabile $n$ volte in un intorno di $x_{0}$, allora la funzione $f(x)$ può essere sviluppata in serie di Taylor centrata in $x_{0}$ come segue:
+\begin{equation*}
+    f(x) = f(x_{0}) + f'(x_{0})(x-x_{0}) + \frac{f''(x_{0})}{2!}(x-x_{0})^{2} + \frac{f'''(x_{0})}{3!}(x-x_{0})^{3} + \ldots + \frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n} + R_{n}(x)
+\end{equation*}
+\section{Teorema di Taylor con resto di Peano}
+
+Il resto di Peano centrato in $x_{0}$ è anche detto \textbf{Resto di Mc Laurin}
+
+Sia una funzione $f$ derivabile $n-volte$ in $x_{0}$ allora $$ f(x) =
+    \sum_{k=0}^n \frac{f^{(k)}(x_{0})}{k!}(x-x_{0}) + R_{n}(x) $$ con $$
+    \lim\limits_{ x \to x_{0} } \frac{R_{n}(x)}{(x-x_{0})^n} = 0 $$
+Sappiamo che $$R_{n}(x) = \lim\limits_{ x \to x_{0} }
+    \frac{R_{n}(x)}{(x-x_{0})^n} $$
+sostituiamo $R_{n}(x)$ nella formula del limite
+$$ \lim\limits_{ x \to x_{0} } \frac{f(x) - \sum_{k=0}^n
+    \frac{f^{(k)}(x_{0})}{k!}(x-x_{0})^{k}}{(x-x_{0})^n}$$
+    per ipotesi sappiamo che deve essere uguale a 0, deriviamo numeratore e denominatore: $$
+    \lim\limits_{ x \to x_{0} } \frac{f'(x) - \sum_{k=1}^n
+    \frac{f'^{(k)}(x_{0})}{k!}(x-x_{0})^{k-1}}{n(x-x_{0})^{n-1}} $$ $$
+    \lim\limits_{ x \to x_{0} } \frac{f''(x) - \sum_{k=2}^n
+    \frac{f''^{(k)}(x_{0})}{k!}(x-x_{0})^{k-2}}{n(n-1)(x-x_{0})^{n-2}} $$
+
+questo si può ripetere $n-1$ volte $$ \lim\limits_{ x \to x_{0} }
+    \frac{f^{n-1}(x) - f^{(n-1)}(x_{0}) - f^{(n)}(x_{0})(x-x_{0})}{n!(x-x_{0})} =$$
+$$\frac{1}{n!} \lim\limits_{ x \to x_{0} } \left[ \frac{f^{n-1}(x) -
+    f^{(n-1)}(x_{0}) - f^{(n)}(x_{0})(x-x_{0})}{x-x_{0}} \right] = 0 $$
+    
+
+\end {document}
